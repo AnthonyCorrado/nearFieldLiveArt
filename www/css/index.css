@@ -1,0 +1,134 @@
+body {
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+.container {
+	background-color: red;
+	overflow: hidden;
+}
+.grass-foreground, .grass-background {
+	width: 200%;
+	height: 50%;
+	margin-left: -50%;
+	background-color: rgba(46, 207, 46, 1);
+	position: absolute;
+	bottom: -20%;
+	border-radius: 100% 100% 0 0;
+	z-index: 20;
+}
+.grass-midground {
+	width: 150%;
+	height: 55%;
+	margin-left: 10%;
+	background-color: rgba(0, 158, 0, 1);
+	position: absolute;
+	bottom: -10%;
+	border-radius: 100% 100% 0 0;
+	z-index: 15;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+.grass-background {
+	background-color: rgba(0, 110, 0, 1);
+	height: 50%;
+	position: absolute;
+	z-index: 10;
+	 -webkit-transform: rotate(7deg);
+  -moz-transform: rotate(7deg);
+  -o-transform: rotate(7deg);
+  -ms-transform: rotate(7deg);
+  transform: rotate(7deg);
+}
+.sun {
+	width: 20%;
+	height: 20%;
+	margin-top: 0%;
+	position: absolute;
+	z-index: 7;
+	border-radius: 100%;
+	background: rgba(241,247,52,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(241,247,52,1) 0%, rgba(241,247,52,1) 42%, rgba(240,162,93,1) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(241,247,52,1)), color-stop(42%, rgba(241,247,52,1)), color-stop(100%, rgba(240,162,93,1)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(241,247,52,1) 0%, rgba(241,247,52,1) 42%, rgba(240,162,93,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(241,247,52,1) 0%, rgba(241,247,52,1) 42%, rgba(240,162,93,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(241,247,52,1) 0%, rgba(241,247,52,1) 42%, rgba(240,162,93,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(241,247,52,1) 0%, rgba(241,247,52,1) 42%, rgba(240,162,93,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f734', endColorstr='#f0a25d', GradientType=1 );
+}
+.sky {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2
+	background: rgba(188,224,238,1);
+	background: -moz-linear-gradient(top, rgba(188,224,238,1) 0%, rgba(41,184,229,1) 2%, rgba(179,220,237,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(188,224,238,1)), color-stop(2%, rgba(41,184,229,1)), color-stop(100%, rgba(179,220,237,1)));
+	background: -webkit-linear-gradient(top, rgba(188,224,238,1) 0%, rgba(41,184,229,1) 2%, rgba(179,220,237,1) 100%);
+	background: -o-linear-gradient(top, rgba(188,224,238,1) 0%, rgba(41,184,229,1) 2%, rgba(179,220,237,1) 100%);
+	background: -ms-linear-gradient(top, rgba(188,224,238,1) 0%, rgba(41,184,229,1) 2%, rgba(179,220,237,1) 100%);
+	background: linear-gradient(to bottom, rgba(188,224,238,1) 0%, rgba(41,184,229,1) 2%, rgba(179,220,237,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bce0ee', endColorstr='#b3dced', GradientType=0 );
+}
+.cloud1 {
+	width: 33%;
+	height: 33%;
+	margin-left: 20%;
+	margin-top: 5%;
+	position: absolute;
+	float: left;
+	background: url('../img/cloud1.png') no-repeat;
+	background-size: 100% 100%;
+	z-index: 9;
+}
+.cloud2 {
+	width: 20%;
+	height: 20%;
+	margin-left: 20%;
+	margin-top: 15%;
+	position: absolute;
+	float: left;
+	background: url('../img/cloud2.png') no-repeat;
+	background-size: 100% 100%;
+	z-index: 8;
+}
+.fx-cover {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 100;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.cloud1, .cloud2, .sun, .fx-cover {
+  -webkit-transition:2s linear all;
+  transition:2s linear all;
+  opacity:1;
+}
+
+.cloud1.ng-hide, .cloud2.ng-hide, .sun.ng-hide {
+  opacity:0;
+}
+
+.cloud1.ng-hide-add, .cloud1.ng-hide-remove, sun.ng-hide-add, .sun.ng-hide-remove, .cloud2.ng-hide-add, .cloud2.ng-hide-remove,{
+  /* this needs to be here to make it visible during the animation
+     since the .ng-hide class is already on the element rendering
+     it as hidden. */
+  display:block!important;
+}
